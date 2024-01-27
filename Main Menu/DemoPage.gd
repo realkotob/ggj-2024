@@ -15,7 +15,7 @@ enum INSTRUCTION_TYPES {KEYBOARD, JOYPAD}
 
 func _ready() -> void:
 	get_tree().paused = true
-	_demo_mouse_mode = Input.mouse_mode
+	_demo_mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	
@@ -55,7 +55,7 @@ func change_instruction(type: int) -> void:
 
 
 func pause_demo() -> void:
-	_demo_mouse_mode = Input.mouse_mode
+	#_demo_mouse_mode = Input.mouse_mode
 	get_tree().paused = true
 	demo_page_root.show()
 	var tween := create_tween()
@@ -75,4 +75,7 @@ func resume_demo() -> void:
 
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Levels/prototype.tscn")
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$CanvasLayer.hide()
+	#get_tree().change_scene_to_file("res://Scenes/Levels/prototype.tscn")

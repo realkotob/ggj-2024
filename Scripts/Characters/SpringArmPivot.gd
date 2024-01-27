@@ -11,7 +11,8 @@ const CAMERA_BLEND : float = 0.05
 @onready var camera : Camera3D = $SpringArm3D/Camera3D
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass
+
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:

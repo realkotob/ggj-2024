@@ -8,7 +8,7 @@
 radius = 0.731329
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_a0qvt"]
-radius = 5.0
+radius = 1.0
 
 [node name="Coin" type="RigidBody3D"]
 collision_layer = 0
