@@ -142,7 +142,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0344099, -0.250324)
 shape = SubResource("BoxShape3D_bm81s")
 disabled = true
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["navigation_mesh_source_group"]]
 target_desired_distance = 0.1
 path_height_offset = 1.0
 

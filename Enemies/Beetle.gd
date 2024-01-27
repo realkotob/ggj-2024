@@ -3,6 +3,7 @@ extends RigidBody3D
 const COIN_SCENE := preload("res://Player/Coin/Coin.tscn")
 const PUFF_SCENE := preload("smoke_puff/smoke_puff.tscn")
 
+@export var speed: int = 100
 @export var coins_count := 5
 @export var stopping_distance := 0.0
 
@@ -42,8 +43,7 @@ func _physics_process(delta: float) -> void:
 			var direction := (next_location - global_position)
 			direction.y = 0
 			direction = direction.normalized()
-
-			var collision := move_and_collide(direction * delta * 3)
+			var collision := move_and_collide(direction * delta* speed)
 			if collision:
 				var collider := collision.get_collider()
 				if collider is Player:
