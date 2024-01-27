@@ -88,4 +88,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_pfpgv")
 shape = SubResource("ConcavePolygonShape3D_rit6o")
 
 [node name="Player" parent="." instance=ExtResource("5_lcj2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0157654, 2.38419e-07, -0.0581572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.202241, -0.542716, -0.261165)

@@ -66,6 +66,8 @@ func _ready() -> void:
 	# In that case, we register input actions for the user at runtime.
 	if not InputMap.has_action("move_left"):
 		_register_input_actions()
+func _on_timer_timeout():
+	randomize_direction()
 
 
 func _physics_process(delta: float) -> void:
@@ -288,3 +290,6 @@ func _register_input_actions() -> void:
 		var input_key = InputEventKey.new()
 		input_key.keycode = INPUT_ACTIONS[action]
 		InputMap.action_add_event(action, input_key)
+
+
+
