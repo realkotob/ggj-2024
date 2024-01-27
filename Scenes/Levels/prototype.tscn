@@ -96,10 +96,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_pfpgv")
 shape = SubResource("ConcavePolygonShape3D_rit6o")
 
 [node name="Player" parent="." instance=ExtResource("5_lcj2t")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.202241, -0.542716, -0.261165)
 
 [node name="GroundEnemy" parent="." instance=ExtResource("8_3qslv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19471, 9.53674e-07, 6.16879)
+speed = 5
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_7corp")

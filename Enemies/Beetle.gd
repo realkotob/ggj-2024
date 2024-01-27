@@ -37,9 +37,12 @@ func _physics_process(delta: float) -> void:
 
 		_navigation_agent.target_position = _target.global_position
 
-		var next_location := _navigation_agent.get_next_path_position()
+		#var next_location := _navigation_agent.get_next_path_position()
+		var next_location : Vector3 = %Player.global_position
+		
 
-		if not _navigation_agent.is_target_reached():
+		#if not _navigation_agent.is_target_reached():
+		if next_location.distance_to(global_position) > 1:
 			var direction := (next_location - global_position)
 			direction.y = 0
 			direction = direction.normalized()
