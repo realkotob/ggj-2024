@@ -2565,9 +2565,9 @@ script = ExtResource("2_cp6td")
 main_animation_player = NodePath("gdbot/AnimationPlayer")
 
 [node name="Main_Char_01_Rigged" parent="." instance=ExtResource("2_34o7j")]
-visible = false
 
 [node name="gdbot" parent="." instance=ExtResource("2_v8h3f")]
+visible = false
 
 [node name="Skeleton3D" parent="gdbot/Armature" index="0"]
 bones/2/rotation = Quaternion(3.09086e-08, 0.707107, 0.707107, 3.09086e-08)
