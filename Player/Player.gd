@@ -65,6 +65,7 @@ func _ready() -> void:
 	# In that case, we register input actions for the user at runtime.
 	if not InputMap.has_action("move_left"):
 		_register_input_actions()
+		
 func _on_timer_timeout():
 	randomize_direction()
 
@@ -80,10 +81,10 @@ func _physics_process(delta: float) -> void:
 		_ground_height = global_position.y
 
 	# Swap weapons
-	if Input.is_action_just_pressed("swap_weapons"):
-		_equipped_weapon = WEAPON_TYPE.DEFAULT if _equipped_weapon == WEAPON_TYPE.GRENADE else WEAPON_TYPE.GRENADE
-		_grenade_aim_controller.visible = _equipped_weapon == WEAPON_TYPE.GRENADE
-		emit_signal("weapon_switched", WEAPON_TYPE.keys()[_equipped_weapon])
+	#if Input.is_action_just_pressed("swap_weapons"):
+		#_equipped_weapon = WEAPON_TYPE.DEFAULT if _equipped_weapon == WEAPON_TYPE.GRENADE else WEAPON_TYPE.GRENADE
+		#_grenade_aim_controller.visible = _equipped_weapon == WEAPON_TYPE.GRENADE
+		#emit_signal("weapon_switched", WEAPON_TYPE.keys()[_equipped_weapon])
 
 	# Get input and movement state
 	var is_attacking := Input.is_action_pressed("attack") and not _attack_animation_player.is_playing()
@@ -144,6 +145,11 @@ func _physics_process(delta: float) -> void:
 				if _grenade_cooldown_tick > grenade_cooldown:
 					_grenade_cooldown_tick = 0.0
 					_grenade_aim_controller.throw_grenade()
+					
+					_equipped_weapon = WEAPON_TYPE.DEFAULT
+					_grenade_aim_controller.visible = _equipped_weapon == WEAPON_TYPE.GRENADE
+					emit_signal("weapon_switched", WEAPON_TYPE.keys()[_equipped_weapon])
+
 
 	velocity.y += _gravity * delta
 
@@ -181,12 +187,14 @@ func _physics_process(delta: float) -> void:
 
 
 func attack() -> void:
+	return
 	_attack_animation_player.play("Attack")
 	_character_skin.punch()
 	velocity = _rotation_root.transform.basis * Vector3.BACK * attack_impulse
 
 
 func shoot() -> void:
+	return
 	var bullet := BULLET_SCENE.instantiate()
 	bullet.shooter = self
 	var origin := global_position + Vector3.UP
@@ -206,6 +214,10 @@ func collect_coin() -> void:
 	_coins += 1
 	_ui_coins_container.update_coins_amount(_coins)
 	randomize_direction()
+	
+	_equipped_weapon = WEAPON_TYPE.GRENADE
+	_grenade_aim_controller.visible = _equipped_weapon == WEAPON_TYPE.GRENADE
+	emit_signal("weapon_switched", WEAPON_TYPE.keys()[_equipped_weapon])
 
 var randomized_angle = 0
 var randomized_jump = 1
