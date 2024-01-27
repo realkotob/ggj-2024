@@ -147,7 +147,7 @@ func _physics_process(delta: float) -> void:
 	velocity.y += _gravity * delta
 
 	if is_just_jumping:
-		velocity.y += jump_initial_impulse
+		velocity.y += jump_initial_impulse * randomized_jump
 	elif is_air_boosting:
 		velocity.y += jump_additional_force * delta
 
@@ -204,6 +204,14 @@ func reset_position() -> void:
 func collect_coin() -> void:
 	_coins += 1
 	_ui_coins_container.update_coins_amount(_coins)
+	randomize_direction()
+
+var randomized_angle = 0
+var randomized_jump = 1
+func randomize_direction():
+	print("Randomized direction")
+	randomized_angle = (randi() % 18) * 20
+	randomized_jump = (1.0+ (randi() % 3)) /3.0
 
 
 func lose_coins() -> void:
@@ -230,6 +238,8 @@ func _get_camera_oriented_input() -> Vector3:
 
 	input = _camera_controller.global_transform.basis * input
 	input.y = 0.0
+	
+	input = input.rotated(Vector3.UP, deg_to_rad(randomized_angle))
 	return input
 
 

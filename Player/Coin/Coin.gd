@@ -1,6 +1,8 @@
 class_name Coin
 extends RigidBody3D
 
+@export var can_collect : bool = false
+
 const MIN_LAUNCH_RANGE := 2.0
 const MAX_LAUNCH_RANGE := 4.0
 const MIN_LAUNCH_HEIGHT := 1.0
@@ -13,6 +15,10 @@ const FOLLOW_TWEEN_DURATION := 0.5
 @onready var _player_detection_area: Area3D = $PlayerDetectionArea
 @onready var _initial_tween_position := Vector3.ZERO
 @onready var _target: Node3D = null
+
+func _ready():
+	if can_collect:
+		spawn()
 
 
 func spawn(coin_delay: float = 0.5) -> void:
@@ -37,7 +43,7 @@ func set_target(new_target: PhysicsBody3D) -> void:
 		_initial_tween_position = global_position
 		_target = new_target
 		var tween := create_tween()
-		tween.tween_method(_follow, 0.0, 1.0, 0.5)
+		tween.tween_method(_follow, 0.0, 1.0, 0.35)
 		tween.tween_callback(_collect)
 
 
