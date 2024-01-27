@@ -93,7 +93,8 @@ func _physics_process(delta: float) -> void:
 	var is_just_on_floor := is_on_floor() and not _is_on_floor_buffer
 
 	_is_on_floor_buffer = is_on_floor()
-	_move_direction = _get_camera_oriented_input()
+	_move_direction = _get_camera_oriented_input() 
+	# TODO: Randomize move direction
 
 	# To not orient quickly to the last input, we save a last strong direction,
 	# this also ensures a good normalized value for the rotation basis.
