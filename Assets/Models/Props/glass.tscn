@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2cjn5p0ibdbs"]
+[gd_scene load_steps=17 format=3 uid="uid://d2cjn5p0ibdbs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l83ry"]
 
@@ -34,6 +34,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_em2nj")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4x5et"]
+albedo_color = Color(0.552941, 0.733333, 0.309804, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ht4t"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_a0hfd"]
@@ -65,6 +68,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_a0hfd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05fid"]
+albedo_color = Color(0.517647, 0.231373, 0.156863, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgak6"]
 
@@ -100,6 +106,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fgboh")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7e4ws"]
+transparency = 4
+albedo_color = Color(1, 1, 1, 0.243137)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2sf5g"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_yxbye"]
@@ -134,6 +144,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yxbye")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtjcw"]
+albedo_color = Color(0.741176, 0.67451, 0.384314, 1)
+
 [node name="glass" type="Node3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.572532, 0.813867, -0.10049)
 
@@ -141,18 +154,22 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.572532, 0.813867, -0
 transform = Transform3D(0.90353, 0.48036, -0.208098, -0.348972, 1.1862, 0.150026, 0.2487, -0.0807001, 0.966534, 0.0867692, -0.648575, -1.25043)
 mesh = SubResource("ArrayMesh_6ywe6")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4x5et")
 
 [node name="Stick" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.983174, -0.0617396, -0.171921, 0.0822145, 0.989999, 0.11464, 0.163124, -0.126845, 0.978418, 0.0989286, 0.0517996, -1.53027)
 mesh = SubResource("ArrayMesh_lqpn5")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_05fid")
 
 [node name="Glass" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.62018, 0, 0, 0, -2.62018, 8.53761e-07, 0, -8.53761e-07, -2.62018, 0, 0, 0)
 mesh = SubResource("ArrayMesh_mpout")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_7e4ws")
 
 [node name="Liquid" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.37528, 0, 0, 0, -2.37528, 7.73965e-07, 0, -7.73965e-07, -2.37528, 0, 0, 0)
 mesh = SubResource("ArrayMesh_050jh")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_vtjcw")
