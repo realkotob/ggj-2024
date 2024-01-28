@@ -3,8 +3,8 @@ extends Node
 enum INSTRUCTION_TYPES {KEYBOARD, JOYPAD}
 
 @onready var demo_page_root: Control = $CanvasLayer/DemoPageRoot
-@onready var resume_button: Button = $CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Resume
-@onready var exit_button: Button = $CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Exit
+@onready var resume_button: TextureButton = $CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Resume
+@onready var exit_button: TextureButton = $CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Exit
 @onready var keyboard_button: Button = %KeyboardButton
 @onready var joypad_button: Button = %JoypadButton
 @onready var grid_container_keyboard: GridContainer = %GridContainerKeyboard

@@ -1,8 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://cnj0t3ad178q6"]
+[gd_scene load_steps=31 format=3 uid="uid://cnj0t3ad178q6"]
 
 [ext_resource type="Script" path="res://Main Menu/DemoPage.gd" id="1_4brsx"]
 [ext_resource type="Shader" path="res://Main Menu/Assets/BlurShader.gdshader" id="2_07raf"]
-[ext_resource type="Texture2D" uid="uid://0kwiqn54l1qt" path="res://Main Menu/font.png" id="3_2l50h"]
+[ext_resource type="Texture2D" uid="uid://ctt0fqillesmr" path="res://Assets/Icons/logo.png" id="3_jyx3h"]
 [ext_resource type="Texture2D" uid="uid://c1h5gk8rsf3va" path="res://Main Menu/Assets/RoundedRectangle.png" id="4_paxwi"]
 [ext_resource type="Texture2D" uid="uid://cyodossj1xd4d" path="res://Main Menu/3516.jpg" id="5_nthuj"]
 [ext_resource type="FontFile" uid="uid://ch2aef1jex81f" path="res://Main Menu/Fonts/Montserrat-Bold.ttf" id="6_r37av"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://bm4i5limc5q4h" path="res://Main Menu/ControllerIcons/r2_button.png" id="18_64dkh"]
 [ext_resource type="Texture2D" uid="uid://cwxudh6hj0dx" path="res://Main Menu/ControllerIcons/l2_button.png" id="19_ymr5x"]
 [ext_resource type="Texture2D" uid="uid://dnk6rxv8ejgny" path="res://Main Menu/ControllerIcons/buttonStart.png" id="21_hfiqr"]
+[ext_resource type="Texture2D" uid="uid://db72t24nasjp1" path="res://Assets/Icons/icn_menu_play.png" id="24_wvr2j"]
+[ext_resource type="Texture2D" uid="uid://bto3oq4nu6n2w" path="res://Assets/Icons/icn_menu_quit.png" id="25_rxc3t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oq2x4"]
 shader = ExtResource("2_07raf")
@@ -69,32 +71,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Content" type="VBoxContainer" parent="CanvasLayer/DemoPageRoot"]
-layout_mode = 0
+[node name="Content" type="Control" parent="CanvasLayer/DemoPageRoot"]
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Title" type="Control" parent="CanvasLayer/DemoPageRoot/Content"]
-modulate = Color(1, 1, 1, 0.54902)
 layout_mode = 2
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 242.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Title"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -50.0
-offset_bottom = 62.0
+offset_left = 904.0
+offset_top = -153.0
+offset_right = -214.0
+offset_bottom = 383.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_2l50h")
+texture = ExtResource("3_jyx3h")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Title"]
+visible = false
 layout_mode = 0
 offset_left = 1043.0
 offset_top = 158.0
@@ -105,6 +113,9 @@ label_settings = SubResource("LabelSettings_swl1q")
 
 [node name="Content" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content"]
 layout_mode = 2
+offset_top = 246.0
+offset_right = 1920.0
+offset_bottom = 937.0
 size_flags_vertical = 3
 
 [node name="SampleImageContainer" type="Control" parent="CanvasLayer/DemoPageRoot/Content/Content"]
@@ -158,7 +169,7 @@ layout_mode = 2
 [node name="Title" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-text = "Third-Person Platformer"
+text = " "
 label_settings = SubResource("LabelSettings_y4f87")
 
 [node name="Inspirations" type="RichTextLabel" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer"]
@@ -453,40 +464,52 @@ expand_icon = true
 
 [node name="MarginContainer" type="Control" parent="CanvasLayer/DemoPageRoot/Content"]
 layout_mode = 2
+anchors_preset = 0
+offset_top = 941.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer"]
-layout_mode = 0
+[node name="Buttons" type="Control" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer"]
+layout_mode = 1
 anchor_left = 0.368
 anchor_top = 0.5
 anchor_right = 0.632
 anchor_bottom = 0.5
-offset_left = -0.559998
-offset_top = -44.5
-offset_right = 0.559937
-offset_bottom = 20.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -211.56
+offset_top = -353.5
+offset_right = 482.56
+offset_bottom = 32.5
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
-theme_override_constants/separation = 50
-alignment = 1
+mouse_filter = 2
 
-[node name="Play" type="Button" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons"]
+[node name="Play" type="TextureButton" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons"]
+clip_contents = true
 layout_mode = 2
+offset_left = 532.0
+offset_top = 36.0
+offset_right = 932.0
+offset_bottom = 436.0
 mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("6_r37av")
-theme_override_font_sizes/font_size = 26
 action_mode = 0
-text = "  Resume  "
+texture_normal = ExtResource("24_wvr2j")
+texture_pressed = ExtResource("24_wvr2j")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Exit" type="Button" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons"]
+[node name="Exit" type="TextureButton" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons"]
+clip_contents = true
 layout_mode = 2
+offset_left = 799.0
+offset_top = 36.0
+offset_right = 1199.0
+offset_bottom = 436.0
 mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("6_r37av")
-theme_override_font_sizes/font_size = 26
 action_mode = 0
-text = "  Exit  "
+texture_normal = ExtResource("25_rxc3t")
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="pressed" from="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Play" to="." method="_on_play_pressed"]

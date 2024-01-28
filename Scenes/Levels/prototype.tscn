@@ -45,7 +45,7 @@ geometry_source_geometry_mode = 1
 
 [node name="Prototype" type="Node3D"]
 
-[node name="DemoPage" parent="." instance=ExtResource("1_aioi6")]
+[node name="MainMenu" parent="." instance=ExtResource("1_aioi6")]
 
 [node name="Env" type="Node3D" parent="."]
 
