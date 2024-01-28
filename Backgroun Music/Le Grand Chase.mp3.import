@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqkt0gwd1ab34"
+path="res://.godot/imported/Le Grand Chase.mp3-b7ac3626623f8859c6d90b72c78fce41.mp3str"
+
+[deps]
+
+source_file="res://Backgroun Music/Le Grand Chase.mp3"
+dest_files=["res://.godot/imported/Le Grand Chase.mp3-b7ac3626623f8859c6d90b72c78fce41.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
