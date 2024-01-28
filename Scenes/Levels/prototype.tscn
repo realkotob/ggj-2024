@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://coue2qehpn4fr"]
+[gd_scene load_steps=24 format=3 uid="uid://coue2qehpn4fr"]
 
 [ext_resource type="PackedScene" uid="uid://cnj0t3ad178q6" path="res://Main Menu/DemoPage.tscn" id="1_aioi6"]
 [ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://Assets/Textures/Black.png" id="1_hwes2"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://be73i8qph68qo" path="res://Enemies/Props/sign_tri.tscn" id="14_3qetp"]
 [ext_resource type="PackedScene" uid="uid://cl3qpymnwnj7l" path="res://Enemies/Props/trash_bin.tscn" id="15_c7b2h"]
 [ext_resource type="PackedScene" uid="uid://bhv1xlaq8o3aw" path="res://Enemies/Props/trash_can.tscn" id="16_2rwql"]
+[ext_resource type="AudioStream" uid="uid://rld35xms553a" path="res://Backgroun Music/Sergio-27s Magic Dustbin.mp3" id="16_ng3lb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
 panorama = ExtResource("1_rrvcb")
@@ -125,3 +126,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63114, 1.90735e-06, -7.524
 
 [node name="trash_can" parent="Enemies" instance=ExtResource("16_2rwql")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93096, 0, -14.2501)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_ng3lb")
+volume_db = 5.74
+autoplay = true
