@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://bcimsypkqnnuj" path="res://Enemies/Props/mailbox.tscn" id="11_6jt1o"]
 [ext_resource type="PackedScene" uid="uid://dmd1s8iabi03d" path="res://Enemies/Props/post.tscn" id="12_hd8wo"]
 [ext_resource type="PackedScene" uid="uid://bmeoes8omviit" path="res://Enemies/Props/sign_rect.tscn" id="13_yb1n0"]
-[ext_resource type="PackedScene" uid="uid://bd1iepl7v3qle" path="res://Scenes/Levels/World.tscn" id="14_1tixe"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/World.tscn" id="14_1tixe"]
 [ext_resource type="PackedScene" uid="uid://be73i8qph68qo" path="res://Enemies/Props/sign_tri.tscn" id="14_3qetp"]
 [ext_resource type="PackedScene" uid="uid://cl3qpymnwnj7l" path="res://Enemies/Props/trash_bin.tscn" id="15_c7b2h"]
 [ext_resource type="PackedScene" uid="uid://bhv1xlaq8o3aw" path="res://Enemies/Props/trash_can.tscn" id="16_2rwql"]
-[ext_resource type="AudioStream" uid="uid://rld35xms553a" path="res://Backgroun Music/Sergio-27s Magic Dustbin.mp3" id="16_ng3lb"]
+[ext_resource type="AudioStream" uid="uid://bm5v7t62735vb" path="res://Backgroun Music/Sergio-27s Magic Dustbin.mp3" id="16_ng3lb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wrsl3"]
 sky_top_color = Color(0.231373, 0.27451, 0.333333, 1)
@@ -117,7 +117,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17658, 1.90735e-06, 0.6976
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63114, 1.90735e-06, -7.52478)
 
 [node name="trash_can" parent="Enemies" instance=ExtResource("16_2rwql")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36314, 1.03912, -5.78793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36314, 0.0857422, -5.78793)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_ng3lb")
