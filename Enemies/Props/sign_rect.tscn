@@ -184,7 +184,7 @@ continuous_cd = true
 script = ExtResource("1_6hmun")
 
 [node name="ReactionLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8034, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85088, 0)
 visible = false
 billboard = 2
 text = "!"

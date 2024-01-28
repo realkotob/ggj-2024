@@ -3,7 +3,7 @@ extends RigidBody3D
 const COIN_SCENE := preload("res://Player/Coin/Coin.tscn")
 const PUFF_SCENE := preload("smoke_puff/smoke_puff.tscn")
 
-var speed: int = 5
+var speed: int = 2
 @export var coins_count := 5
 @export var stopping_distance := 0.0
 
