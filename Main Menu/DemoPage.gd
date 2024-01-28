@@ -2,6 +2,11 @@ extends Node
 
 enum INSTRUCTION_TYPES {KEYBOARD, JOYPAD}
 
+@export var menu: Control
+@export var intro: Control
+@export var intro1: Control
+@export var intro2: Control
+
 @onready var demo_page_root: Control = $CanvasLayer/DemoPageRoot
 @onready var resume_button: TextureButton = $CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Resume
 @onready var exit_button: TextureButton = $CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Exit
@@ -14,6 +19,8 @@ enum INSTRUCTION_TYPES {KEYBOARD, JOYPAD}
 
 
 func _ready() -> void:
+	intro.hide()
+	
 	get_tree().paused = true
 	_demo_mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -30,6 +37,14 @@ func _input(event: InputEvent) -> void:
 			resume_demo()
 		else:
 			pause_demo()
+	if event.is_action_pressed("continue"):
+		if intro1.visible:
+			show_intro_2()
+			return
+		if intro2.visible:
+			play()
+			return
+		
 
 
 func change_instruction(type: int) -> void:
@@ -70,6 +85,19 @@ func resume_demo() -> void:
 
 
 func _on_play_pressed():
+	show_intro_1()
+
+func show_intro_1():
+	intro.show()
+	menu.hide()
+	intro1.show()
+	intro2.hide()
+
+func show_intro_2():
+	intro1.hide()
+	intro2.show()
+
+func play():
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$CanvasLayer.hide()
