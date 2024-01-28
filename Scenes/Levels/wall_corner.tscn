@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://v1kb5vy8v28d"]
+[gd_scene load_steps=6 format=3 uid="uid://s3jeuapiklkv"]
 
 [ext_resource type="Texture2D" uid="uid://bp8krg8ypuip5" path="res://Scenes/LevelDesignAssets/wallCorner_Imphanzia  color palette.png" id="1_aoech"]
 
@@ -46,7 +46,7 @@ shadow_mesh = SubResource("ArrayMesh_5qphp")
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5kf6"]
 size = Vector3(0.393555, 2.32007, 1.7251)
 
-[node name="wallCorner" type="Area3D"]
+[node name="wallCorner" type="StaticBody3D"]
 
 [node name="wall1" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0694138, 1.18382, 0.0709046)

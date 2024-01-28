@@ -1,22 +1,36 @@
-[gd_scene load_steps=23 format=3 uid="uid://coue2qehpn4fr"]
+[gd_scene load_steps=33 format=3 uid="uid://coue2qehpn4fr"]
 
 [ext_resource type="PackedScene" uid="uid://cnj0t3ad178q6" path="res://Main Menu/DemoPage.tscn" id="1_aioi6"]
 [ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://Assets/Textures/Black.png" id="1_hwes2"]
 [ext_resource type="PackedScene" uid="uid://c3jfvpbvy37ul" path="res://Assets/Models/Props/pub.tscn" id="4_j2sg5"]
+[ext_resource type="PackedScene" uid="uid://ciilky0vxmify" path="res://Scenes/Levels/plane.tscn" id="5_hel6j"]
 [ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://Player/Player.tscn" id="5_lcj2t"]
+[ext_resource type="PackedScene" uid="uid://n0vtiwkv2t56" path="res://Scenes/Levels/plane_green.tscn" id="6_fnch2"]
 [ext_resource type="PackedScene" uid="uid://c54mpt43fs4wc" path="res://Player/Coin/Coin.tscn" id="6_n01i8"]
+[ext_resource type="PackedScene" uid="uid://kfqxs05ybff1" path="res://Scenes/Levels/tree_2.tscn" id="7_6aasq"]
+[ext_resource type="PackedScene" uid="uid://copfbc7hxk3qs" path="res://Scenes/Levels/wall_1.tscn" id="8_1mcj1"]
 [ext_resource type="PackedScene" uid="uid://dvbpv3g4wnm6l" path="res://Enemies/Props/bench.tscn" id="8_d1u7b"]
+[ext_resource type="PackedScene" uid="uid://13phdxdt1sh6" path="res://Scenes/Levels/wall_2.tscn" id="9_8g058"]
 [ext_resource type="PackedScene" uid="uid://py1265wuvr4w" path="res://Enemies/Props/fence.tscn" id="9_48x7e"]
 [ext_resource type="PackedScene" uid="uid://do18uy4b8emb5" path="res://Enemies/Props/hydrant.tscn" id="10_70m3n"]
+[ext_resource type="PackedScene" uid="uid://dp6wjagr6yeqr" path="res://Scenes/Levels/wall_3.tscn" id="10_hpopk"]
 [ext_resource type="PackedScene" uid="uid://bcimsypkqnnuj" path="res://Enemies/Props/mailbox.tscn" id="11_6jt1o"]
+[ext_resource type="PackedScene" uid="uid://bfd7pwvhjr5ni" path="res://Scenes/Levels/wall_4.tscn" id="11_j0w8h"]
 [ext_resource type="PackedScene" uid="uid://dmd1s8iabi03d" path="res://Enemies/Props/post.tscn" id="12_hd8wo"]
+[ext_resource type="PackedScene" uid="uid://cr6a14m0gq0qb" path="res://Scenes/Levels/wall_5.tscn" id="12_m81yr"]
+[ext_resource type="PackedScene" uid="uid://bg8wykg5lpjec" path="res://Scenes/Levels/wall_6.tscn" id="13_3t4uq"]
 [ext_resource type="PackedScene" uid="uid://bmeoes8omviit" path="res://Enemies/Props/sign_rect.tscn" id="13_yb1n0"]
 [ext_resource type="PackedScene" uid="uid://be73i8qph68qo" path="res://Enemies/Props/sign_tri.tscn" id="14_3qetp"]
+[ext_resource type="PackedScene" uid="uid://s3jeuapiklkv" path="res://Scenes/Levels/wall_corner.tscn" id="14_rmc1u"]
 [ext_resource type="PackedScene" uid="uid://cl3qpymnwnj7l" path="res://Enemies/Props/trash_bin.tscn" id="15_c7b2h"]
 [ext_resource type="PackedScene" uid="uid://bhv1xlaq8o3aw" path="res://Enemies/Props/trash_can.tscn" id="16_2rwql"]
 [ext_resource type="AudioStream" uid="uid://bm5v7t62735vb" path="res://Backgroun Music/Sergio-27s Magic Dustbin.mp3" id="16_ng3lb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wrsl3"]
+sky_top_color = Color(0.231373, 0.27451, 0.333333, 1)
+sky_horizon_color = Color(0.141176, 0.145098, 0.14902, 1)
+ground_bottom_color = Color(0.141176, 0.145098, 0.2, 1)
+ground_horizon_color = Color(0.12549, 0.129412, 0.129412, 1)
 
 [sub_resource type="Sky" id="Sky_5ngqa"]
 sky_material = SubResource("ProceduralSkyMaterial_wrsl3")
@@ -46,14 +60,20 @@ geometry_source_geometry_mode = 1
 
 [node name="MainMenu" parent="." instance=ExtResource("1_aioi6")]
 
+[node name="Player" parent="." instance=ExtResource("5_lcj2t")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7889, -0.542716, -0.261165)
+
 [node name="Env" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
 environment = SubResource("Environment_ctwiv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
-transform = Transform3D(-0.866026, -0.433013, 0.249999, 0.5, -0.750001, 0.433012, -1.3411e-07, 0.499999, 0.866026, 0, 0, 0)
+transform = Transform3D(-0.866025, -0.433013, 0.249999, 0.25784, 0.0416281, 0.96529, -0.428391, 0.900426, 0.0755973, 0, 0, 0)
+light_color = Color(0.870588, 0.882353, 1, 1)
 shadow_enabled = true
+shadow_opacity = 0.6
 
 [node name="Floor" type="MeshInstance3D" parent="Env"]
 mesh = SubResource("PlaneMesh_mmup0")
@@ -70,9 +90,36 @@ navigation_mesh = SubResource("NavigationMesh_7corp")
 [node name="pub" parent="Env" instance=ExtResource("4_j2sg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.038, 0, 0)
 
-[node name="Player" parent="." instance=ExtResource("5_lcj2t")]
-unique_name_in_owner = true
+[node name="Deco" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7889, -0.542716, -0.261165)
+
+[node name="plane" parent="Deco" instance=ExtResource("5_hel6j")]
+
+[node name="planeGreen" parent="Deco" instance=ExtResource("6_fnch2")]
+
+[node name="tree2" parent="Deco" instance=ExtResource("7_6aasq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5439, 0, 14.0241)
+
+[node name="wall1" parent="Deco" instance=ExtResource("8_1mcj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.525, 0, 9.54609)
+
+[node name="wall2" parent="Deco" instance=ExtResource("9_8g058")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37995, 0, -7.27334)
+
+[node name="wall3" parent="Deco" instance=ExtResource("10_hpopk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2191, 0, 7.18894)
+
+[node name="wall4" parent="Deco" instance=ExtResource("11_j0w8h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5598, 0, 5.80257)
+
+[node name="wall5" parent="Deco" instance=ExtResource("12_m81yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6579, 0, 4.06929)
+
+[node name="wall6" parent="Deco" instance=ExtResource("13_3t4uq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6117, 0, 3.19)
+
+[node name="wallCorner" parent="Deco" instance=ExtResource("14_rmc1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2701, 0, -3.04887)
 
 [node name="Martinis" type="Node3D" parent="."]
 

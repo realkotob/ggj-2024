@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4k8c2opl8ocq"]
+[gd_scene load_steps=6 format=3 uid="uid://bg8wykg5lpjec"]
 
 [ext_resource type="Texture2D" uid="uid://cx2o7xe0bo7yv" path="res://Scenes/LevelDesignAssets/wall6_Imphanzia  color palette.png" id="1_0fcki"]
 
@@ -46,7 +46,7 @@ shadow_mesh = SubResource("ArrayMesh_ejjgh")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ysjgr"]
 points = PackedVector3Array(-0.000704587, 1.64602, 0.643847, -0.000671804, 1.94473, 0.575592, -0.000704587, 1.79937, 0.626516, -0.335373, 1.79937, 0.623743, -0.335373, 1.64602, 0.641011, -0.000704587, 4.86462e-05, 0.643847, -0.000311017, 2.33462, -4.33926e-06, -0.33534, 1.94473, 0.572819, -0.000475019, 2.26652, 0.253919, -0.000638992, 2.07545, 0.493535, -0.335307, 2.07545, 0.490762, -0.33511, 4.86462e-05, -4.33926e-06, -0.335373, 4.86462e-05, 0.641011, -0.000376612, 4.86462e-05, -4.33926e-06, -0.335012, 2.33485, -4.33926e-06, -0.000409395, 2.31748, 0.108334, -0.335176, 2.26652, 0.251146, -0.000573397, 2.18447, 0.384504, -0.335241, 2.18447, 0.381731, -0.33511, 2.31748, 0.105561)
 
-[node name="wall6" type="Area3D"]
+[node name="wall6" type="StaticBody3D"]
 
 [node name="wall1_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0812483, 0, 0)
