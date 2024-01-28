@@ -485,7 +485,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 mouse_filter = 2
 
-[node name="Play" type="TextureButton" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons"]
+[node name="Resume" type="TextureButton" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons"]
 clip_contents = true
 layout_mode = 2
 offset_left = 532.0
@@ -512,4 +512,4 @@ texture_normal = ExtResource("25_rxc3t")
 ignore_texture_size = true
 stretch_mode = 5
 
-[connection signal="pressed" from="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Resume" to="." method="_on_play_pressed"]
