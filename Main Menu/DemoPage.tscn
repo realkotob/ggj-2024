@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnj0t3ad178q6"]
+[gd_scene load_steps=12 format=3 uid="uid://cnj0t3ad178q6"]
 
 [ext_resource type="Script" path="res://Main Menu/DemoPage.gd" id="1_4brsx"]
 [ext_resource type="Shader" path="res://Main Menu/Assets/BlurShader.gdshader" id="2_07raf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ys087jrog844" path="res://Assets/Icons/icn_menu_settings.png" id="6_foppj"]
 [ext_resource type="Texture2D" uid="uid://dp5vpuoxuocwy" path="res://Assets/Icons/WhatsApp Image 2024-01-28 at 12.42.09 PM.jpeg" id="7_xg6lh"]
 [ext_resource type="Texture2D" uid="uid://docjhxa08qy3f" path="res://Assets/Icons/WhatsApp Image 2024-01-28 at 12.42.10 PM.jpeg" id="8_q8qrk"]
+[ext_resource type="Texture2D" uid="uid://cnck1gfje0mob" path="res://Assets/Icons/icn_menu_win-01-01.png" id="9_bg20r"]
 [ext_resource type="Texture2D" uid="uid://db72t24nasjp1" path="res://Assets/Icons/icn_menu_play.png" id="24_wvr2j"]
 [ext_resource type="Texture2D" uid="uid://bto3oq4nu6n2w" path="res://Assets/Icons/icn_menu_quit.png" id="25_rxc3t"]
 
@@ -17,13 +18,14 @@ shader_parameter/color_modulate = Color(0.780392, 0.717647, 0.968627, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_swl1q"]
 font_size = 20
 
-[node name="DemoPage" type="Node" node_paths=PackedStringArray("menu", "intro", "intro1", "intro2")]
+[node name="DemoPage" type="Node" node_paths=PackedStringArray("menu", "intro", "intro1", "intro2", "win")]
 process_mode = 3
 script = ExtResource("1_4brsx")
 menu = NodePath("CanvasLayer/DemoPageRoot/Content")
 intro = NodePath("CanvasLayer/DemoPageRoot/Intro")
 intro1 = NodePath("CanvasLayer/DemoPageRoot/Intro/1")
 intro2 = NodePath("CanvasLayer/DemoPageRoot/Intro/2")
+win = NodePath("CanvasLayer/DemoPageRoot/Win")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
@@ -228,5 +230,14 @@ offset_right = 1245.0
 offset_bottom = 1028.0
 theme_override_font_sizes/font_size = 50
 text = "Press Space to Continue"
+
+[node name="Win" type="TextureRect" parent="CanvasLayer/DemoPageRoot"]
+visible = false
+layout_mode = 0
+offset_right = 1910.0
+offset_bottom = 1080.0
+texture = ExtResource("9_bg20r")
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="pressed" from="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Resume" to="." method="_on_play_pressed"]

@@ -305,3 +305,10 @@ func _register_input_actions() -> void:
 
 
 
+
+
+func _on_win_area_body_entered(body):
+	print("area win")
+	if body is Player:
+		if _coins >= 10:
+			%MainMenu.show_win()

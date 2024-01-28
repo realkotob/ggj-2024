@@ -6,6 +6,7 @@ enum INSTRUCTION_TYPES {KEYBOARD, JOYPAD}
 @export var intro: Control
 @export var intro1: Control
 @export var intro2: Control
+@export var win: Control
 
 @onready var demo_page_root: Control = $CanvasLayer/DemoPageRoot
 @onready var resume_button: TextureButton = $CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Resume
@@ -19,6 +20,7 @@ enum INSTRUCTION_TYPES {KEYBOARD, JOYPAD}
 
 
 func _ready() -> void:
+	win.hide()
 	intro.hide()
 	
 	get_tree().paused = true
@@ -97,8 +99,20 @@ func show_intro_2():
 	intro1.hide()
 	intro2.show()
 
+func show_win():
+	get_tree().paused = true
+	$CanvasLayer.show()
+	win.show()
+
 func play():
+	intro.hide()
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$CanvasLayer.hide()
 	#get_tree().change_scene_to_file("res://Scenes/Levels/prototype.tscn")
+
+
+func _on_win_area_body_entered(body):
+	if body is Player:
+		if body._coins >= 10:
+			show_win()

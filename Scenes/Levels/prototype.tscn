@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://coue2qehpn4fr"]
+[gd_scene load_steps=20 format=3 uid="uid://coue2qehpn4fr"]
 
 [ext_resource type="PackedScene" uid="uid://cnj0t3ad178q6" path="res://Main Menu/DemoPage.tscn" id="1_aioi6"]
 [ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://Player/Player.tscn" id="5_lcj2t"]
@@ -34,9 +34,13 @@ glow_enabled = true
 geometry_parsed_geometry_type = 2
 geometry_source_geometry_mode = 1
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_nt73t"]
+radius = 2.0
+
 [node name="Prototype" type="Node3D"]
 
 [node name="MainMenu" parent="." instance=ExtResource("1_aioi6")]
+unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("5_lcj2t")]
 unique_name_in_owner = true
@@ -124,5 +128,13 @@ stream = ExtResource("16_ng3lb")
 volume_db = 5.74
 autoplay = true
 
-[node name="Node3D" parent="." instance=ExtResource("14_1tixe")]
+[node name="World" parent="." instance=ExtResource("14_1tixe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1163, 0, -1.15456)
+
+[node name="WinArea" type="Area3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.8214, 0.264623, -0.369799)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/WinArea"]
+shape = SubResource("SphereShape3D_nt73t")
+
+[connection signal="body_entered" from="World/WinArea" to="MainMenu" method="_on_win_area_body_entered"]
