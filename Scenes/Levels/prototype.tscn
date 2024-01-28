@@ -1,30 +1,19 @@
-[gd_scene load_steps=33 format=3 uid="uid://coue2qehpn4fr"]
+[gd_scene load_steps=19 format=3 uid="uid://coue2qehpn4fr"]
 
 [ext_resource type="PackedScene" uid="uid://cnj0t3ad178q6" path="res://Main Menu/DemoPage.tscn" id="1_aioi6"]
-[ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://Assets/Textures/Black.png" id="1_hwes2"]
-[ext_resource type="PackedScene" uid="uid://c3jfvpbvy37ul" path="res://Assets/Models/Props/pub.tscn" id="4_j2sg5"]
-[ext_resource type="PackedScene" uid="uid://ciilky0vxmify" path="res://Scenes/Levels/plane.tscn" id="5_hel6j"]
 [ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://Player/Player.tscn" id="5_lcj2t"]
-[ext_resource type="PackedScene" uid="uid://n0vtiwkv2t56" path="res://Scenes/Levels/plane_green.tscn" id="6_fnch2"]
 [ext_resource type="PackedScene" uid="uid://c54mpt43fs4wc" path="res://Player/Coin/Coin.tscn" id="6_n01i8"]
-[ext_resource type="PackedScene" uid="uid://kfqxs05ybff1" path="res://Scenes/Levels/tree_2.tscn" id="7_6aasq"]
-[ext_resource type="PackedScene" uid="uid://copfbc7hxk3qs" path="res://Scenes/Levels/wall_1.tscn" id="8_1mcj1"]
 [ext_resource type="PackedScene" uid="uid://dvbpv3g4wnm6l" path="res://Enemies/Props/bench.tscn" id="8_d1u7b"]
-[ext_resource type="PackedScene" uid="uid://13phdxdt1sh6" path="res://Scenes/Levels/wall_2.tscn" id="9_8g058"]
 [ext_resource type="PackedScene" uid="uid://py1265wuvr4w" path="res://Enemies/Props/fence.tscn" id="9_48x7e"]
 [ext_resource type="PackedScene" uid="uid://do18uy4b8emb5" path="res://Enemies/Props/hydrant.tscn" id="10_70m3n"]
-[ext_resource type="PackedScene" uid="uid://dp6wjagr6yeqr" path="res://Scenes/Levels/wall_3.tscn" id="10_hpopk"]
 [ext_resource type="PackedScene" uid="uid://bcimsypkqnnuj" path="res://Enemies/Props/mailbox.tscn" id="11_6jt1o"]
-[ext_resource type="PackedScene" uid="uid://bfd7pwvhjr5ni" path="res://Scenes/Levels/wall_4.tscn" id="11_j0w8h"]
 [ext_resource type="PackedScene" uid="uid://dmd1s8iabi03d" path="res://Enemies/Props/post.tscn" id="12_hd8wo"]
-[ext_resource type="PackedScene" uid="uid://cr6a14m0gq0qb" path="res://Scenes/Levels/wall_5.tscn" id="12_m81yr"]
-[ext_resource type="PackedScene" uid="uid://bg8wykg5lpjec" path="res://Scenes/Levels/wall_6.tscn" id="13_3t4uq"]
 [ext_resource type="PackedScene" uid="uid://bmeoes8omviit" path="res://Enemies/Props/sign_rect.tscn" id="13_yb1n0"]
+[ext_resource type="PackedScene" uid="uid://bd1iepl7v3qle" path="res://Scenes/Levels/World.tscn" id="14_1tixe"]
 [ext_resource type="PackedScene" uid="uid://be73i8qph68qo" path="res://Enemies/Props/sign_tri.tscn" id="14_3qetp"]
-[ext_resource type="PackedScene" uid="uid://s3jeuapiklkv" path="res://Scenes/Levels/wall_corner.tscn" id="14_rmc1u"]
 [ext_resource type="PackedScene" uid="uid://cl3qpymnwnj7l" path="res://Enemies/Props/trash_bin.tscn" id="15_c7b2h"]
 [ext_resource type="PackedScene" uid="uid://bhv1xlaq8o3aw" path="res://Enemies/Props/trash_can.tscn" id="16_2rwql"]
-[ext_resource type="AudioStream" uid="uid://bm5v7t62735vb" path="res://Backgroun Music/Sergio-27s Magic Dustbin.mp3" id="16_ng3lb"]
+[ext_resource type="AudioStream" uid="uid://rld35xms553a" path="res://Backgroun Music/Sergio-27s Magic Dustbin.mp3" id="16_ng3lb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wrsl3"]
 sky_top_color = Color(0.231373, 0.27451, 0.333333, 1)
@@ -40,17 +29,6 @@ background_mode = 2
 sky = SubResource("Sky_5ngqa")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajchh"]
-albedo_texture = ExtResource("1_hwes2")
-uv1_triplanar = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_mmup0"]
-material = SubResource("StandardMaterial3D_ajchh")
-size = Vector2(50, 50)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_26ptr"]
-data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_7corp"]
 geometry_parsed_geometry_type = 2
@@ -75,51 +53,8 @@ light_color = Color(0.870588, 0.882353, 1, 1)
 shadow_enabled = true
 shadow_opacity = 0.6
 
-[node name="Floor" type="MeshInstance3D" parent="Env"]
-mesh = SubResource("PlaneMesh_mmup0")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Env/Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_26ptr")
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Env"]
 navigation_mesh = SubResource("NavigationMesh_7corp")
-
-[node name="pub" parent="Env" instance=ExtResource("4_j2sg5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.038, 0, 0)
-
-[node name="Deco" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7889, -0.542716, -0.261165)
-
-[node name="plane" parent="Deco" instance=ExtResource("5_hel6j")]
-
-[node name="planeGreen" parent="Deco" instance=ExtResource("6_fnch2")]
-
-[node name="tree2" parent="Deco" instance=ExtResource("7_6aasq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5439, 0, 14.0241)
-
-[node name="wall1" parent="Deco" instance=ExtResource("8_1mcj1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.525, 0, 9.54609)
-
-[node name="wall2" parent="Deco" instance=ExtResource("9_8g058")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37995, 0, -7.27334)
-
-[node name="wall3" parent="Deco" instance=ExtResource("10_hpopk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2191, 0, 7.18894)
-
-[node name="wall4" parent="Deco" instance=ExtResource("11_j0w8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5598, 0, 5.80257)
-
-[node name="wall5" parent="Deco" instance=ExtResource("12_m81yr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6579, 0, 4.06929)
-
-[node name="wall6" parent="Deco" instance=ExtResource("13_3t4uq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6117, 0, 3.19)
-
-[node name="wallCorner" parent="Deco" instance=ExtResource("14_rmc1u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2701, 0, -3.04887)
 
 [node name="Martinis" type="Node3D" parent="."]
 
@@ -132,15 +67,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75297, 1.87047, 0)
 can_collect = true
 
 [node name="Martini2" parent="Martinis" instance=ExtResource("6_n01i8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.34902, 2.8057, 8.14519)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.34902, 2.8057, 6.69701)
 can_collect = true
 
 [node name="Martini3" parent="Martinis" instance=ExtResource("6_n01i8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.47254, 1.87047, 8.14519)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49888, 1.87047, 4.77534)
 can_collect = true
 
 [node name="Martini4" parent="Martinis" instance=ExtResource("6_n01i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.87648, 0.935233, 0)
+can_collect = true
+
+[node name="Martini6" parent="Martinis" instance=ExtResource("6_n01i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.87648, 0.935233, -3.00546)
+can_collect = true
+
+[node name="Martini7" parent="Martinis" instance=ExtResource("6_n01i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0264, 0.935233, -3.00546)
+can_collect = true
+
+[node name="Martini8" parent="Martinis" instance=ExtResource("6_n01i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43752, 0.935233, 0.120351)
 can_collect = true
 
 [node name="Enemies" type="Node3D" parent="."]
@@ -155,13 +102,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.75693, 1.90735e-06, -8.7181
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.177, 0, 1.56034)
 
 [node name="mailbox" parent="Enemies" instance=ExtResource("11_6jt1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5169, 0, 9.66545)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5169, 0, 5.11947)
 
 [node name="post" parent="Enemies" instance=ExtResource("12_hd8wo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.05087, 0, 12.5196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.05087, 0, 2.12375)
 
 [node name="sign_rect" parent="Enemies" instance=ExtResource("13_yb1n0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65046, 0, 8.89963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65046, 0, 5.31199)
 
 [node name="sign_tri" parent="Enemies" instance=ExtResource("14_3qetp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17658, 1.90735e-06, 0.697655)
@@ -170,9 +117,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17658, 1.90735e-06, 0.6976
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63114, 1.90735e-06, -7.52478)
 
 [node name="trash_can" parent="Enemies" instance=ExtResource("16_2rwql")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93096, 0, -14.2501)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36314, 1.03912, -5.78793)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_ng3lb")
 volume_db = 5.74
 autoplay = true
+
+[node name="Node3D" parent="." instance=ExtResource("14_1tixe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1163, 0, -1.15456)

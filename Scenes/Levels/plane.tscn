@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciilky0vxmify"]
+[gd_scene load_steps=6 format=3 uid="uid://w2boxged7q1q"]
 
 [ext_resource type="Texture2D" uid="uid://c8vfqhlpg71cr" path="res://Scenes/LevelDesignAssets/plane_Imphanzia  color palette.png" id="1_lj86h"]
 
@@ -47,10 +47,10 @@ data = PackedVector3Array(0.9618, 0, -5.9019, 1.9235, 0, -8.3434, 1.9235, 0, -5.
 [node name="plane" type="Area3D"]
 
 [node name="Plane_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.67425)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 2.52575)
 mesh = SubResource("ArrayMesh_ftexo")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.67425)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 2.52575)
 shape = SubResource("ConcavePolygonShape3D_s0lp2")
