@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmpdarlo7ylgh"]
+[gd_scene load_steps=5 format=3 uid="uid://dvqnahpw7ggld"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ej1d"]
 
@@ -34,8 +34,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gtxl8")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nrsh6"]
-size = Vector3(0.173584, 0.897583, 0.637207)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wunp"]
+albedo_color = Color(0.658824, 0.403922, 0.309804, 1)
 
 [node name="fence" type="Area3D"]
 
@@ -43,7 +43,4 @@ size = Vector3(0.173584, 0.897583, 0.637207)
 transform = Transform3D(0.0251112, 0, 0, 0, 0.438229, 0, 0, 0, 0.124046, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rnjfq")
 skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21593e-05, 0.483486, -0.00458437)
-shape = SubResource("BoxShape3D_nrsh6")
+surface_material_override/0 = SubResource("StandardMaterial3D_2wunp")

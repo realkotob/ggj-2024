@@ -1,16 +1,20 @@
-[gd_scene load_steps=25 format=3 uid="uid://coue2qehpn4fr"]
+[gd_scene load_steps=23 format=3 uid="uid://coue2qehpn4fr"]
 
 [ext_resource type="PackedScene" uid="uid://cnj0t3ad178q6" path="res://Main Menu/DemoPage.tscn" id="1_aioi6"]
 [ext_resource type="Texture2D" uid="uid://b8q44ipg8a3cq" path="res://Assets/Textures/Black.png" id="1_hwes2"]
 [ext_resource type="Texture2D" uid="uid://doyodkg1ds7td" path="res://Assets/Textures/Sky.png" id="1_rrvcb"]
-[ext_resource type="Texture2D" uid="uid://gwt4mrbmdv01" path="res://Assets/Textures/Orange.png" id="2_087ax"]
-[ext_resource type="Texture2D" uid="uid://dkpqh8de7tb3n" path="res://Assets/Textures/Green.png" id="3_qkav0"]
+[ext_resource type="PackedScene" uid="uid://c3jfvpbvy37ul" path="res://Assets/Models/Props/pub.tscn" id="4_j2sg5"]
 [ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://Player/Player.tscn" id="5_lcj2t"]
 [ext_resource type="PackedScene" uid="uid://c54mpt43fs4wc" path="res://Player/Coin/Coin.tscn" id="6_n01i8"]
-[ext_resource type="PackedScene" uid="uid://cplqtriqkt3sf" path="res://Assets/Models/Props/trash_can.tscn" id="8_1o6mu"]
-[ext_resource type="PackedScene" uid="uid://b1w2qbooyt7np" path="res://Assets/Models/Props/fire_hydrant.tscn" id="9_p3t3t"]
-[ext_resource type="PackedScene" uid="uid://bfgmwdd1hhrbo" path="res://Assets/Models/Props/trash_bin.tscn" id="10_yvj3i"]
-[ext_resource type="PackedScene" uid="uid://b8bmwllfvkv60" path="res://Assets/Models/Props/post.tscn" id="11_pjnpd"]
+[ext_resource type="PackedScene" uid="uid://dvbpv3g4wnm6l" path="res://Enemies/Props/bench.tscn" id="8_d1u7b"]
+[ext_resource type="PackedScene" uid="uid://py1265wuvr4w" path="res://Enemies/Props/fence.tscn" id="9_48x7e"]
+[ext_resource type="PackedScene" uid="uid://do18uy4b8emb5" path="res://Enemies/Props/hydrant.tscn" id="10_70m3n"]
+[ext_resource type="PackedScene" uid="uid://bcimsypkqnnuj" path="res://Enemies/Props/mailbox.tscn" id="11_6jt1o"]
+[ext_resource type="PackedScene" uid="uid://dmd1s8iabi03d" path="res://Enemies/Props/post.tscn" id="12_hd8wo"]
+[ext_resource type="PackedScene" uid="uid://bmeoes8omviit" path="res://Enemies/Props/sign_rect.tscn" id="13_yb1n0"]
+[ext_resource type="PackedScene" uid="uid://be73i8qph68qo" path="res://Enemies/Props/sign_tri.tscn" id="14_3qetp"]
+[ext_resource type="PackedScene" uid="uid://cl3qpymnwnj7l" path="res://Enemies/Props/trash_bin.tscn" id="15_c7b2h"]
+[ext_resource type="PackedScene" uid="uid://bhv1xlaq8o3aw" path="res://Enemies/Props/trash_can.tscn" id="16_2rwql"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6c4vd"]
 panorama = ExtResource("1_rrvcb")
@@ -35,28 +39,6 @@ size = Vector2(50, 50)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_26ptr"]
 data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkvud"]
-albedo_texture = ExtResource("2_087ax")
-uv1_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_plpqy"]
-material = SubResource("StandardMaterial3D_jkvud")
-size = Vector3(10, 3, 1)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v7prx"]
-data = PackedVector3Array(-5, 1.5, 0.5, 5, 1.5, 0.5, -5, -1.5, 0.5, 5, 1.5, 0.5, 5, -1.5, 0.5, -5, -1.5, 0.5, 5, 1.5, -0.5, -5, 1.5, -0.5, 5, -1.5, -0.5, -5, 1.5, -0.5, -5, -1.5, -0.5, 5, -1.5, -0.5, 5, 1.5, 0.5, 5, 1.5, -0.5, 5, -1.5, 0.5, 5, 1.5, -0.5, 5, -1.5, -0.5, 5, -1.5, 0.5, -5, 1.5, -0.5, -5, 1.5, 0.5, -5, -1.5, -0.5, -5, 1.5, 0.5, -5, -1.5, 0.5, -5, -1.5, -0.5, 5, 1.5, 0.5, -5, 1.5, 0.5, 5, 1.5, -0.5, -5, 1.5, 0.5, -5, 1.5, -0.5, 5, 1.5, -0.5, -5, -1.5, 0.5, 5, -1.5, 0.5, -5, -1.5, -0.5, 5, -1.5, 0.5, 5, -1.5, -0.5, -5, -1.5, -0.5)
-
-[sub_resource type="PrismMesh" id="PrismMesh_0l7qq"]
-left_to_right = -2.0
-size = Vector3(5, 5, 5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfpgv"]
-albedo_texture = ExtResource("3_qkav0")
-uv1_triplanar = true
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rit6o"]
-data = PackedVector3Array(-12.5, 2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, -12.5, 2.5, -2.5, -2.5, -2.5, -2.5, 2.5, -2.5, -2.5, -12.5, 2.5, 2.5, -12.5, 2.5, -2.5, 2.5, -2.5, 2.5, -12.5, 2.5, -2.5, 2.5, -2.5, -2.5, 2.5, -2.5, 2.5, -12.5, 2.5, -2.5, -12.5, 2.5, 2.5, -2.5, -2.5, -2.5, -12.5, 2.5, 2.5, -2.5, -2.5, 2.5, -2.5, -2.5, -2.5, -2.5, -2.5, 2.5, 2.5, -2.5, 2.5, -2.5, -2.5, -2.5, 2.5, -2.5, 2.5, 2.5, -2.5, -2.5, -2.5, -2.5, -2.5)
-
 [sub_resource type="NavigationMesh" id="NavigationMesh_7corp"]
 geometry_parsed_geometry_type = 2
 geometry_source_geometry_mode = 1
@@ -65,70 +47,81 @@ geometry_source_geometry_mode = 1
 
 [node name="DemoPage" parent="." instance=ExtResource("1_aioi6")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
 environment = SubResource("Environment_ctwiv")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866026, -0.433013, 0.249999, 0.5, -0.75, 0.433012, -1.3411e-07, 0.499999, 0.866026, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(-0.866026, -0.433013, 0.249999, 0.5, -0.750001, 0.433012, -1.3411e-07, 0.499999, 0.866026, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="Floor" type="MeshInstance3D" parent="Env"]
 mesh = SubResource("PlaneMesh_mmup0")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Env/Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Env/Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_26ptr")
 
-[node name="Wall" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -3)
-mesh = SubResource("BoxMesh_plpqy")
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Env"]
+navigation_mesh = SubResource("NavigationMesh_7corp")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Wall"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_v7prx")
-
-[node name="Slope" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 4)
-mesh = SubResource("PrismMesh_0l7qq")
-surface_material_override/0 = SubResource("StandardMaterial3D_pfpgv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Slope"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Slope/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_rit6o")
+[node name="pub" parent="Env" instance=ExtResource("4_j2sg5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.038, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("5_lcj2t")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.202241, -0.542716, -0.261165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7889, -0.542716, -0.261165)
 
-[node name="Coin2" parent="." instance=ExtResource("6_n01i8")]
+[node name="Martinis" type="Node3D" parent="."]
+
+[node name="Martini5" parent="Martinis" instance=ExtResource("6_n01i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0442, 0.432337, 3.90867)
+can_collect = true
+
+[node name="Martini" parent="Martinis" instance=ExtResource("6_n01i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75297, 1.87047, 0)
 can_collect = true
 
-[node name="Coin3" parent="." instance=ExtResource("6_n01i8")]
+[node name="Martini2" parent="Martinis" instance=ExtResource("6_n01i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.34902, 2.8057, 8.14519)
 can_collect = true
 
-[node name="Coin4" parent="." instance=ExtResource("6_n01i8")]
+[node name="Martini3" parent="Martinis" instance=ExtResource("6_n01i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.47254, 1.87047, 8.14519)
 can_collect = true
 
-[node name="Trash can" parent="." instance=ExtResource("8_1o6mu")]
-
-[node name="Fire hydrant" parent="." instance=ExtResource("9_p3t3t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.37207, 0, 5.05728)
-
-[node name="Coin" parent="." instance=ExtResource("6_n01i8")]
+[node name="Martini4" parent="Martinis" instance=ExtResource("6_n01i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.87648, 0.935233, 0)
 can_collect = true
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_7corp")
+[node name="Enemies" type="Node3D" parent="."]
 
-[node name="Trash bin" parent="." instance=ExtResource("10_yvj3i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73787, 1.19209e-07, 1.31809)
+[node name="bench" parent="Enemies" instance=ExtResource("8_d1u7b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13747, 0, -8.61303)
 
-[node name="post" parent="." instance=ExtResource("11_pjnpd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 6)
+[node name="fence" parent="Enemies" instance=ExtResource("9_48x7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.75693, 1.90735e-06, -8.71819)
+
+[node name="hydrant" parent="Enemies" instance=ExtResource("10_70m3n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.177, 0, 1.56034)
+
+[node name="mailbox" parent="Enemies" instance=ExtResource("11_6jt1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5169, 0, 9.66545)
+
+[node name="post" parent="Enemies" instance=ExtResource("12_hd8wo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.05087, 0, 12.5196)
+
+[node name="sign_rect" parent="Enemies" instance=ExtResource("13_yb1n0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65046, 0, 8.89963)
+
+[node name="sign_tri" parent="Enemies" instance=ExtResource("14_3qetp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17658, 1.90735e-06, 0.697655)
+
+[node name="trash_bin" parent="Enemies" instance=ExtResource("15_c7b2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63114, 1.90735e-06, -7.52478)
+
+[node name="trash_can" parent="Enemies" instance=ExtResource("16_2rwql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93096, 0, -14.2501)

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqw64w6kb0fyg" path="res://Player/Coin/CoinVisuals/CoinModel.tscn" id="1_ajpkd"]
 [ext_resource type="Script" path="res://Player/Coin/Coin.gd" id="1_netfc"]
 [ext_resource type="AudioStream" uid="uid://dxv00m8q7huw5" path="res://Player/Coin/Audio/completetask_0.mp3" id="3_bn2wr"]
-[ext_resource type="PackedScene" uid="uid://d2cjn5p0ibdbs" path="res://Assets/Models/Props/glass.tscn" id="3_kuech"]
+[ext_resource type="PackedScene" path="res://Assets/Models/Props/glass.tscn" id="4_64b60"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5al5l"]
 radius = 0.731329
@@ -11,7 +11,7 @@ radius = 0.731329
 [sub_resource type="SphereShape3D" id="SphereShape3D_a0qvt"]
 radius = 1.0
 
-[node name="Coin" type="RigidBody3D"]
+[node name="Martini" type="RigidBody3D"]
 collision_layer = 0
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -27,12 +27,12 @@ shape = SubResource("SphereShape3D_5al5l")
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.679386, 0)
 visible = false
 
-[node name="glass" parent="." instance=ExtResource("3_kuech")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.0458273, 1.04783, -0.10049)
-
 [node name="CollectAudio" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_bn2wr")
 volume_db = 1.0
+
+[node name="glass" parent="." instance=ExtResource("4_64b60")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0568033, 1.01752, -0.00297352)
 
 [node name="PlayerDetectionArea" type="Area3D" parent="."]
 

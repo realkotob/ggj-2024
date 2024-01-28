@@ -1,4 +1,103 @@
-[gd_scene load_steps=8 format=3 uid="uid://dayuxifg3sccy"]
+[gd_scene load_steps=15 format=3 uid="uid://dmd1s8iabi03d"]
+
+[ext_resource type="Script" path="res://Enemies/Beetle.gd" id="1_sf8bp"]
+[ext_resource type="AudioStream" uid="uid://c66nnoqtanfw2" path="res://Enemies/Sounds/robot_defeat.wav" id="2_8wo2t"]
+[ext_resource type="Shape3D" uid="uid://cl6glgebblaee" path="res://Enemies/Props/eneme_detection_area_collider.tres" id="2_v0vf6"]
+
+[sub_resource type="Animation" id="Animation_5pcps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["!"]
+}
+
+[sub_resource type="Animation" id="Animation_6k5ul"]
+resource_name = "found_player"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["!"]
+}
+
+[sub_resource type="Animation" id="Animation_iekf1"]
+resource_name = "lost_player"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["?"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqtu2"]
+_data = {
+"RESET": SubResource("Animation_5pcps"),
+"found_player": SubResource("Animation_6k5ul"),
+"lost_player": SubResource("Animation_iekf1")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kkmic"]
+height = 4.96262
+radius = 0.570283
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f1e4e"]
+height = 2.0171
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xg7e5"]
 resource_name = "Metal"
@@ -100,26 +199,51 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_a2t1s")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_kkmic"]
-height = 4.96262
-radius = 0.570283
+[node name="post" type="RigidBody3D" groups=["damageables", "targeteables"]]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+lock_rotation = true
+continuous_cd = true
+script = ExtResource("1_sf8bp")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_f1e4e"]
-height = 2.0171
+[node name="ReactionLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8034, 0)
+visible = false
+billboard = 2
+text = "!"
+font_size = 192
+outline_size = 32
 
-[node name="post" type="Area3D"]
-collision_layer = 255
-collision_mask = 255
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ReactionLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_sqtu2")
+}
 
-[node name="Lightpost" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.16923, 0, 0, 0, 1.16923, 0, 0, 0, 1.16923, 0, 0, 0.0419984)
-mesh = SubResource("ArrayMesh_wmlm4")
-skeleton = NodePath("")
+[node name="PlayerDetectionArea" type="Area3D" parent="."]
+collision_layer = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.0221324, 1.69677, 0.00968983)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea"]
+shape = ExtResource("2_v0vf6")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["navigation_mesh_source_group"]]
+target_desired_distance = 0.1
+path_height_offset = 1.0
+
+[node name="DefeatSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_8wo2t")
+volume_db = 1.0
+
+[node name="DeathCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.7, 2.44151e-16, -6.11959e-08, 2.44151e-16, 0.7, -2.44151e-16, 6.11959e-08, -2.44151e-16, -0.7, 0.0221324, 1.69677, -0.00968983)
 shape = SubResource("CylinderShape3D_kkmic")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.8, 0, 0, 0, 0.537004, -0.592981, 0, 0.592981, 0.537004, 0.00567246, 3.50582, 1.04237)
+transform = Transform3D(-0.8, -5.184e-08, -4.69464e-08, 2.79029e-16, 0.537004, -0.592981, 6.99382e-08, -0.592981, -0.537004, -0.00567255, 3.50582, -1.04237)
 shape = SubResource("CylinderShape3D_f1e4e")
+
+[node name="Lightpost" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.16923, 4.07812e-16, -1.02217e-07, 4.07812e-16, 1.16923, -4.07812e-16, 1.02217e-07, -4.07812e-16, -1.16923, -3.67162e-09, -1.46485e-17, -0.0419984)
+mesh = SubResource("ArrayMesh_wmlm4")
+skeleton = NodePath("")

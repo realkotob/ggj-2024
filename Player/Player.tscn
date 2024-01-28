@@ -173,6 +173,7 @@ libraries = {
 
 [node name="MeleeAttackArea" type="Area3D" parent="CharacterRotationRoot"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.959482, 1.0525)
+visible = false
 script = ExtResource("3_v1vve")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="CharacterRotationRoot/MeleeAttackArea"]

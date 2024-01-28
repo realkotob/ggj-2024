@@ -1,0 +1,151 @@
+[gd_scene load_steps=11 format=3 uid="uid://py1265wuvr4w"]
+
+[ext_resource type="Script" path="res://Enemies/Beetle.gd" id="1_byu3v"]
+[ext_resource type="AudioStream" uid="uid://c66nnoqtanfw2" path="res://Enemies/Sounds/robot_defeat.wav" id="2_jub8p"]
+[ext_resource type="Shape3D" uid="uid://cl6glgebblaee" path="res://Enemies/Props/eneme_detection_area_collider.tres" id="2_tee72"]
+[ext_resource type="PackedScene" uid="uid://cxt8d0d4ift6" path="res://Enemies/beetle_bot/beetlebot_skin.tscn" id="3_km03x"]
+[ext_resource type="PackedScene" uid="uid://dvqnahpw7ggld" path="res://Assets/Models/Props/fence.tscn" id="3_maqvc"]
+
+[sub_resource type="Animation" id="Animation_5pcps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["!"]
+}
+
+[sub_resource type="Animation" id="Animation_6k5ul"]
+resource_name = "found_player"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["!"]
+}
+
+[sub_resource type="Animation" id="Animation_iekf1"]
+resource_name = "lost_player"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["?"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqtu2"]
+_data = {
+"RESET": SubResource("Animation_5pcps"),
+"found_player": SubResource("Animation_6k5ul"),
+"lost_player": SubResource("Animation_iekf1")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_os1nk"]
+size = Vector3(1.95905, 1, 0.258453)
+
+[node name="fenche" type="RigidBody3D" groups=["damageables", "targeteables"]]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+lock_rotation = true
+continuous_cd = true
+script = ExtResource("1_byu3v")
+
+[node name="ReactionLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8034, 0)
+visible = false
+billboard = 2
+text = "!"
+font_size = 192
+outline_size = 32
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ReactionLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_sqtu2")
+}
+
+[node name="PlayerDetectionArea" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea"]
+shape = ExtResource("2_tee72")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["navigation_mesh_source_group"]]
+target_desired_distance = 0.1
+path_height_offset = 1.0
+
+[node name="DefeatSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_jub8p")
+volume_db = 1.0
+
+[node name="fence" parent="." instance=ExtResource("3_maqvc")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 0, 0, 0)
+
+[node name="fence2" parent="." instance=ExtResource("3_maqvc")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 0.660114, 0, 0)
+
+[node name="fence3" parent="." instance=ExtResource("3_maqvc")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -0.679947, 0, 0)
+
+[node name="BeetlebotSkin" parent="." instance=ExtResource("3_km03x")]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 0, 0, 0)
+visible = false
+
+[node name="DeathCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0458069, 0.435222, 0.0370941)
+shape = SubResource("BoxShape3D_os1nk")

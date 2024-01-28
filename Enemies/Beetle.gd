@@ -3,13 +3,13 @@ extends RigidBody3D
 const COIN_SCENE := preload("res://Player/Coin/Coin.tscn")
 const PUFF_SCENE := preload("smoke_puff/smoke_puff.tscn")
 
-@export var speed: int = 100
+var speed: int = 5
 @export var coins_count := 5
 @export var stopping_distance := 0.0
 
 @onready var _reaction_animation_player: AnimationPlayer = $ReactionLabel/AnimationPlayer
 @onready var _detection_area: Area3D = $PlayerDetectionArea
-@onready var _beetle_skin: Node3D = $BeetlebotSkin
+#@onready var _beetle_skin: Node3D = $BeetlebotSkin
 @onready var _navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var _death_collision_shape: CollisionShape3D = $DeathCollisionShape
 @onready var _defeat_sound: AudioStreamPlayer3D = $DefeatSound
@@ -21,7 +21,7 @@ const PUFF_SCENE := preload("smoke_puff/smoke_puff.tscn")
 func _ready() -> void:
 	_detection_area.body_entered.connect(_on_body_entered)
 	_detection_area.body_exited.connect(_on_body_exited)
-	_beetle_skin.idle()
+	#_beetle_skin.idle()
 
 
 func _physics_process(delta: float) -> void:
@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if _target != null:
-		_beetle_skin.walk()
+		#_beetle_skin.walk()
 		var target_look_position := _target.global_position
 		target_look_position.y = global_position.y
 		if target_look_position != Vector3.ZERO:
@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		
 
 		#if not _navigation_agent.is_target_reached():
-		if next_location.distance_to(global_position) > 1:
+		if next_location.distance_to(global_position) > 0.5:
 			var direction := (next_location - global_position)
 			direction.y = 0
 			direction = direction.normalized()
@@ -56,7 +56,8 @@ func _physics_process(delta: float) -> void:
 					force.y = 0.5
 					force *= 10.0
 					collider.damage(impact_point, force)
-					_beetle_skin.attack()
+					_target = null
+					#_beetle_skin.attack()
 
 
 func damage(impact_point: Vector3, force: Vector3) -> void:
@@ -69,7 +70,7 @@ func damage(impact_point: Vector3, force: Vector3) -> void:
 
 	_defeat_sound.play()
 	_alive = false
-	_beetle_skin.power_off()
+	#_beetle_skin.power_off()
 
 	_detection_area.body_entered.disconnect(_on_body_entered)
 	_detection_area.body_exited.disconnect(_on_body_exited)
@@ -105,4 +106,4 @@ func _on_body_exited(body: Node3D) -> void:
 	if body is Player:
 		_target = null
 		_reaction_animation_player.play("lost_player")
-		_beetle_skin.idle()
+		#_beetle_skin.idle()
