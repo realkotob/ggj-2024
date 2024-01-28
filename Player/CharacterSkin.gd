@@ -26,9 +26,11 @@ func _ready():
 func set_moving(value : bool):
 	moving = value
 	if moving:
-		state_machine.travel("move")
+		main_animation_player.play("Walk_01")
+		#state_machine.travel("move")
 	else:
-		state_machine.travel("idle")
+		main_animation_player.play("_Default")
+		#state_machine.travel("idle")
 
 
 func set_moving_speed(value : float):
@@ -37,11 +39,16 @@ func set_moving_speed(value : float):
 
 
 func jump():
-	state_machine.travel("jump")
+	main_animation_player.play("Jump")
+	#state_machine.travel("jump")
 
-
+func get_damaged():
+	main_animation_player.play("Get_Hit")
+	
 func fall():
-	state_machine.travel("fall")
+	pass
+	#main_animation_player.play("Fall_Landing")
+	#state_machine.travel("fall")
 
 
 func punch():

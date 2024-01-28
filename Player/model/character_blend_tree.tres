@@ -21,16 +21,16 @@ fadein_time = 0.1
 fadeout_time = 0.1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pi646"]
-animation = &"fall"
+animation = &"Fall_Landing"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_53liu"]
-animation = &"ground_impact"
+animation = &"Fall_Flat_Impact"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nan6l"]
-animation = &"Idle"
+animation = &"_Default"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fy3xa"]
-animation = &"jump"
+animation = &"Jump"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qysix"]
 animation = &"run"
@@ -74,7 +74,7 @@ switch_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_k7175"]
 states/End/position = Vector2(701, 90)
-states/Start/position = Vector2(212, 90)
+states/Start/position = Vector2(179.75, 90)
 states/fall/node = SubResource("AnimationNodeAnimation_pi646")
 states/fall/position = Vector2(342, 207)
 states/ground_impact/node = SubResource("AnimationNodeAnimation_53liu")
@@ -82,14 +82,14 @@ states/ground_impact/position = Vector2(521, 207)
 states/idle/node = SubResource("AnimationNodeAnimation_nan6l")
 states/idle/position = Vector2(328, 90)
 states/jump/node = SubResource("AnimationNodeAnimation_fy3xa")
-states/jump/position = Vector2(179, 207)
+states/jump/position = Vector2(179.375, 207)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_cfy75")
 states/move/position = Vector2(531, 90)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_5sbif"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_sawiy"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_xu61x"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_2yld2"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_ad878"), "fall", "ground_impact", SubResource("AnimationNodeStateMachineTransition_63es0"), "ground_impact", "idle", SubResource("AnimationNodeStateMachineTransition_bsdcg"), "ground_impact", "move", SubResource("AnimationNodeStateMachineTransition_rbpx6"), "move", "jump", SubResource("AnimationNodeStateMachineTransition_42lpg")]
 graph_offset = Vector2(4, -47)
 
 [resource]
-graph_offset = Vector2(-200.223, -25.6146)
+graph_offset = Vector2(-123.297, 346.56)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_766tv")
 nodes/Add2/position = Vector2(260, 80)
 "nodes/Add2 2/node" = SubResource("AnimationNodeAdd2_dpb3n")
@@ -103,6 +103,6 @@ nodes/Animation/position = Vector2(-160, 80)
 nodes/PunchOneShot/node = SubResource("AnimationNodeOneShot_rfqjk")
 nodes/PunchOneShot/position = Vector2(300, 380)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_k7175")
-nodes/StateMachine/position = Vector2(20, 380)
+nodes/StateMachine/position = Vector2(0, 340)
 nodes/output/position = Vector2(780, 80)
 node_connections = [&"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"PunchOneShot", &"PunchOneShot", 0, &"StateMachine", &"PunchOneShot", 1, &"Animation 3", &"output", 0, &"Add2 2"]

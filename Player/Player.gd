@@ -266,6 +266,7 @@ func damage(_impact_point: Vector3, force: Vector3) -> void:
 	force.y = abs(force.y)
 	velocity = force.limit_length(max_throwback_force)
 	lose_coins()
+	_character_skin.get_damaged()
 
 
 func _orient_character_to_direction(direction: Vector3, delta: float) -> void:
