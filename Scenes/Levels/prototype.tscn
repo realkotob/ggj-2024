@@ -44,7 +44,7 @@ unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("5_lcj2t")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25687, -0.542716, -0.261165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3632, -0.542716, -0.261165)
 
 [node name="Env" type="Node3D" parent="."]
 
@@ -62,7 +62,6 @@ navigation_mesh = SubResource("NavigationMesh_7corp")
 
 [node name="Martinis" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1998, 0, 0)
-visible = false
 
 [node name="Martini5" parent="Martinis" instance=ExtResource("6_n01i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0442, 0.432337, 3.90867)
@@ -98,7 +97,6 @@ can_collect = true
 
 [node name="Enemies" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6644, 0, 0)
-visible = false
 
 [node name="bench" parent="Enemies" instance=ExtResource("8_d1u7b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13747, 0, -8.61303)

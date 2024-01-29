@@ -70,6 +70,7 @@ data = PackedVector3Array(-0.5, 0.1, -0.2, -0.5, 0, -0.2, -0.4, 0, -0.2, -0.4, 0
 [node name="roadblock" type="Area3D"]
 
 [node name="detail_roadBlockSmall" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_0tmf0")
 skeleton = NodePath("")
 
