@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf406hs8wsuku"]
+
+[ext_resource type="PackedScene" uid="uid://dnwxtc4p3asu3" path="res://Scenes/LevelDesignAssets/road.glb" id="1_qcsp2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_apvr1"]
+size = Vector3(2.23584, 0.650146, 2.24448)
+
+[node name="MovingPlatform" type="CharacterBody3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="road" parent="." instance=ExtResource("1_qcsp2")]
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, -0.00238037, 0.0502319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153804, -0.00238037, 0.0875092)
+shape = SubResource("BoxShape3D_apvr1")
