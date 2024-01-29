@@ -156,6 +156,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03951, 2.38419e-07, -0.433
 transform = Transform3D(-0.998978, 0, 0.0451887, 0, 1, 0, -0.0451887, 0, -0.998978, 52.6861, 0, -0.235397)
 
 [node name="Moving Platforms" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.134553, 0)
 
 [node name="MovingPlatform" parent="Moving Platforms" instance=ExtResource("9_yekb0")]
 transform = Transform3D(-0.0101577, 0, 1.49997, 0, 1.5, 0, -1.49997, 0, -0.0101577, 6.02038, 0, -3.04988)
