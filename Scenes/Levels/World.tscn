@@ -4,20 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://dw0apb5ijhhk0" path="res://Scenes/Levels/pub.tscn" id="2_8bwkc"]
 [ext_resource type="PackedScene" uid="uid://w2boxged7q1q" path="res://Scenes/Levels/plane.tscn" id="3_vjatn"]
 [ext_resource type="PackedScene" uid="uid://dir78rqgd6ecx" path="res://Scenes/Levels/plane_green.tscn" id="4_8i80r"]
-[ext_resource type="PackedScene" uid="uid://d2rrylr071ju5" path="res://Scenes/Levels/tree_2.tscn" id="5_iyos2"]
-[ext_resource type="PackedScene" uid="uid://v1kb5vy8v28d" path="res://Scenes/Levels/wall_corner.tscn" id="6_qke8q"]
+[ext_resource type="PackedScene" uid="uid://kfqxs05ybff1" path="res://Scenes/Levels/tree_2.tscn" id="5_iyos2"]
+[ext_resource type="PackedScene" uid="uid://s3jeuapiklkv" path="res://Scenes/Levels/wall_corner.tscn" id="6_qke8q"]
 [ext_resource type="PackedScene" uid="uid://iqiwf875unjb" path="res://Scenes/Levels/wall_1.tscn" id="7_caytw"]
 [ext_resource type="PackedScene" uid="uid://cfj7ra2wqsgw5" path="res://Scenes/Levels/house.tscn" id="8_ll12w"]
 [ext_resource type="PackedScene" uid="uid://bf406hs8wsuku" path="res://Scenes/Levels/moving_platform.tscn" id="9_yekb0"]
 [ext_resource type="PackedScene" uid="uid://cw4ca5cwd36p8" path="res://Scenes/Levels/roadblock.tscn" id="10_pnq8u"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajchh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgolm"]
 albedo_color = Color(0.333333, 0.333333, 0.333333, 1)
 albedo_texture = ExtResource("1_ktqqr")
 uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_stpyc"]
-material = SubResource("StandardMaterial3D_ajchh")
+material = SubResource("StandardMaterial3D_qgolm")
 size = Vector2(50, 50)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_abeuv"]

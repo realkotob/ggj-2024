@@ -99,28 +99,28 @@ can_collect = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6644, 0, 0)
 
 [node name="bench" parent="Enemies" instance=ExtResource("8_d1u7b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13747, 0, -8.61303)
+transform = Transform3D(-0.999581, 0, -0.028951, 0, 1, 0, 0.028951, 0, -0.999581, 10.9051, -0.309507, -5.90658)
 
 [node name="fence" parent="Enemies" instance=ExtResource("9_48x7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.75693, 1.90735e-06, -8.71819)
 
 [node name="hydrant" parent="Enemies" instance=ExtResource("10_70m3n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.177, 0, 1.56034)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.177, -0.295145, 3.31082)
 
 [node name="mailbox" parent="Enemies" instance=ExtResource("11_6jt1o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5169, 0, 5.11947)
 
 [node name="post" parent="Enemies" instance=ExtResource("12_hd8wo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.05087, 0, 2.12375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.103, 0, 5.01066)
 
 [node name="sign_rect" parent="Enemies" instance=ExtResource("13_yb1n0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65046, 0, 5.31199)
+transform = Transform3D(0.0959847, 0, 0.995383, 0, 1, 0, -0.995383, 0, 0.0959847, -1.65046, -0.554418, 3.57457)
 
 [node name="sign_tri" parent="Enemies" instance=ExtResource("14_3qetp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.17658, 1.90735e-06, 0.697655)
+transform = Transform3D(0.0781285, 0, 0.996943, 0, 1, 0, -0.996943, 0, 0.0781285, -6.17658, 1.90735e-06, -0.888324)
 
 [node name="trash_bin" parent="Enemies" instance=ExtResource("15_c7b2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.63114, 1.90735e-06, -7.52478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.62644, -0.227377, -6.301)
 
 [node name="trash_can" parent="Enemies" instance=ExtResource("16_2rwql")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36314, 0.0857422, -5.78793)
