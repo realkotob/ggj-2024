@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="GGj2024"
+config/name="Dizzy Dash"
 run/main_scene="res://Scenes/Levels/prototype.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=60
+config/icon="res://logo-01.png"
 
 [autoload]
 
